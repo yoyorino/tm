@@ -1,7 +1,8 @@
 <?php
+require_once 'include/functions.php';
 require_once 'include/db_connect.php';
 require_once 'include/db_content.php';
-require_once 'include/user.php';
+//require_once 'include/user.php';
 
 
 //$database = new PDODatabase();
@@ -20,5 +21,8 @@ else {
 echo '<hr>';
 
 
-$record = User::find_by_email('jovica.spirovski@gmail.com');
-echo $record->full_name();
+$junk = new Junk;
+var_dump(User::find_by_email('jovica.spirovski@gmail.com'));
+
+
+

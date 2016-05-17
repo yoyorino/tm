@@ -5,17 +5,23 @@ class User {
 
     public $usEmail, $usRole, $usName, $usSurname, $usPass, $usDateJoined;
 
-    public static function find_all_users()
-    {
+    public static function find_all_users(){
         return self::find_by_sql('SELECT * FROM tblUsers');
     }
 
-    public static function find_by_email($email)
-    {
-        $result = self::find_by_sql('SELECT * FROM tblUsers WHERE usEmail = :email', ['email' => $email]);
-        return array_shift($result);
+
+    /**
+     * @param string $email
+     * @return bool|object
+     */
+    public static function find_by_email($email) {
+        $row = self::find_by_sql('SELECT * FROM tblUsers WHERE usEmail = :email', ['email' => $email]);
+
+        // if there is a record, return it
+        return !empty($row) ? array_shift($row) : false;
     }
 
+    // converts stdClass to User class
     public static function find_by_sql($sql, $params = null) {
         global $database;
         $result_set = $database->query($sql, $params);
@@ -49,6 +55,7 @@ class User {
 
     private function has_attribute($attribute) {
         $object_vars = get_object_vars($this);
+
         return array_key_exists($attribute, $object_vars);
     }
 }
