@@ -1,3 +1,29 @@
+<?php
+require_once '../include/init.php';
+
+if ($session->is_logged_in()) { redirect_to('index.php'); }
+
+// form has been submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+
+    // check db to see if username/password exist
+    $found_user = User::authenticate($username, $password);
+    if ($found_user) {
+        $session->login($found_user);
+        redirect_to('index.php');
+    } else {
+        // username/password combo was not found in database
+        $message = 'Username/password combination incorrect';
+    }
+} else { // form was not submitted
+    $username = '';
+    $password = '';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,8 +96,8 @@
                         </li>
                     </ul>
                     <div class="pull-right">
-                        <button type="button" class="btn btn-default navbar-btn">Sign in</button>
-                        <button type="button" class="btn btn-primary navbar-btn">login</button>
+                        <button href="login.php" type="button" class="btn btn-default navbar-btn">Sign in</button>
+                        <a href="login.php" type="button" class="btn btn-primary navbar-btn">login</a>
                     </div>
                 </div>
             </div>
