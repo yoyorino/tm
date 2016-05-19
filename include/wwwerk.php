@@ -45,15 +45,31 @@ class wwwerk
         return $output;
     }
 
-    public function GetByTag($tagstr){
-        $d = new DOMDocument;
-        $mock = new DOMDocument;
+    public function GetComments($tagname, $idvalue){
+        $d = new DOMDocument();
         $d->loadHTML($this->pagestring);
-        $body = $d->getElementsByTagName($tagstr)->item(0);
-        foreach ($body->childNodes as $child){
-            $mock->appendChild($mock->importNode($child, true));
+        $commparentnode = $d->getElementById($idvalue);
+        $commnodes = $this->getElementsByClass($commparentnode, $tagname);
+        $arrlen = count($commnodes);
+        //print_r($commnodes);
+
+        for ($i = 0; $i < $arrlen; $i++){
+            printf("%s <br />", $commnodes[$i]->nodeValue);
+
         }
-        print_r($mock->saveHTML());
+
+        return $commnodes;
+    }
+
+    public function getElementsByClass(&$parentNode, $tagname){
+        $nodes = array();
+        $childNodeList = $parentNode->getElementsByTagName($tagname);
+        for ($i = 0; $i < $childNodeList->length; $i++) {
+            $temp = $childNodeList->item($i);
+                $nodes[]=$temp;
+
+        }
+        return $nodes;
     }
 
 }
