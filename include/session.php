@@ -9,7 +9,6 @@ class Session {
     function __construct() {
         session_start();
         $this->check_login();
-
         if ($this->logged_in) {
             // action to take right away if user is logged in
         } else {
@@ -25,7 +24,7 @@ class Session {
     public function login($user) {
         // database should find user based on username/password
         if ($user) {
-            $this->user_id = $_SESSION['user_id'] = $user->id;
+            $this->user_id= $_SESSION['user_id'] = $user->usEmail;
             $this->logged_in = true;
         }
     }

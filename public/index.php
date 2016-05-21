@@ -1,12 +1,20 @@
 <?php
 require_once '../include/init.php';
 
-if ($session->is_logged_in()) { redirect_to('dashboard.php'); }
+var_dump($session);
+
+//if ($session->is_logged_in()) { redirect_to('dashboard.php'); }
 
 // form has been submitted
+//var_dump($_SERVER['REQUEST_METHOD']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['email']);
     $password = trim($_POST['password']);
+
+    var_dump($username);
+    var_dump($password);
+
+
 
     // check db to see if username/password exist
     $found_user = User::authenticate($username, $password);
@@ -81,13 +89,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <input id="password" name="password" type="password" class="login-input" placeholder="Password" required>
                             </li>
                             <li class="button">
-                            <input type="submit" class="button">
+                                <input type="submit" class="button">
                             </li>
                         </ul>
                     </div>
 
                 </form>
-                
+
+
                 <div class="dark-panel-bottom"></div>
             </div>
             <div class="light-panel">
