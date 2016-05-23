@@ -11,6 +11,7 @@ class wwwerk
     //private $url = "";
     //private $tag = "";
     private $pagestring = "";
+    private $comments;
     public function __construct()
     {
         //$this->tag = $tagstr;
@@ -42,6 +43,7 @@ class wwwerk
         // Close the cURL
         curl_close($ch);
         $this->pagestring = $output;
+
         return $output;
     }
 
@@ -53,15 +55,15 @@ class wwwerk
         $arrlen = count($commnodes);
         //print_r($commnodes);
 
-        for ($i = 0; $i < $arrlen; $i++){
-            printf("%s <br />", $commnodes[$i]->nodeValue);
-
-        }
-
+        //for ($i = 0; $i < $arrlen; $i++){
+        //    printf("%s <br />", $commnodes[$i]->nodeValue);
+        //}
+        if (!empty($commnodes))
+            $this->$commnodes;
         return $commnodes;
     }
 
-    public function getElementsByClass(&$parentNode, $tagname){
+    private function getElementsByClass(&$parentNode, $tagname){
         $nodes = array();
         $childNodeList = $parentNode->getElementsByTagName($tagname);
         for ($i = 0; $i < $childNodeList->length; $i++) {
