@@ -1,15 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: stanoja
- * Date: 5/23/16
- * Time: 1:45 PM
- */
-
-//require_once 'search.php';
-echo '<br />';
-//$tmpdata = DataSearch::getData();
-?>
 <head>
     <link href="morrisjs/morris.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
@@ -18,10 +6,34 @@ echo '<br />';
     <script src="morrisjs/morris.min.js"></script>
 </head>
 <body>
+<?php
+/**
+ * Created by PhpStorm.
+ * User: stanoja
+ * Date: 5/23/16
+ * Time: 1:45 PM
+ */
+require_once '../include/init.php';
+
+if ($session->is_logged_in()){
+    echo 'Welcome, ' . $session->user_id;
+}
+else {
+    redirect_to('index.php');
+}
+
+var_dump($session);
+echo '<br />';
+$products = DBContent::GetProductsByUser($session->user_id);
+var_dump($products);
+
+?>
+
 <!--    <div id="myfirstchart" style="height: 250px; width: 640px"></div>-->
     <div id="mysecondchart" style="height: 250px; width: 80%"></div>
     <div id="mythirdchart" style="height: 250px; width: 80%"></div>
     <div id="myfourthchart" style="height: 250px; width: 80%"></div>
+
 
 
     <script>

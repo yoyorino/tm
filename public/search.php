@@ -9,7 +9,6 @@
 require_once '../include/functions.php';
 require_once '../include/db_connect.php';
 require_once '../include/content.php';
-//require_once '../include/user.php';
 require_once '../include/wwwerk.php';
 require_once '../include/filterwerk.php';
 

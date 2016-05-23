@@ -30,3 +30,7 @@ require_once LIB_PATH.DS.'db_connect.php';
 require_once LIB_PATH.DS.'db_object.php';
 
 require_once LIB_PATH.DS.'user.php';       // load database-related classes
+
+//klasete moi sto treba da se spoja:
+
+require_once LIB_PATH.DS.'content.php';
