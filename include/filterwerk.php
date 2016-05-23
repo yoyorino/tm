@@ -51,10 +51,11 @@ class filterwerk
         $add = abs($nscore);
         $maxscore = $pscore + $add;
         $tmpscore += $add;
-        array_push($result, $tmpscore, $maxscore);
+        array_push($result, $tmpscore);
+        array_push($result, $maxscore);
         $percent = ($tmpscore/$maxscore)*100;
         $bod = "";
-        printf("%d / %d, %d%%<br />", $tmpscore, $maxscore, $percent);
+        //printf("%d / %d, %d%%<br />", $tmpscore, $maxscore, $percent);
         if ($percent < 40 )
             $bod = "Negative";
         else if ($percent > 60)
@@ -62,9 +63,15 @@ class filterwerk
         else
             $bod = "Neutral";
 
-        if (($tmpscore == 0) && ($maxscore == 0))
+        if (($tmpscore == 0) && ($maxscore == 0)) {
             $bod = "Neutral";
-        printf(" %s <br />", $bod);
+            $percent=50;
+        }
+        //printf(" %s <br />", $bod);
+
+        array_push($result, $percent);
+        array_push($result, $pscore);
+        array_push($result, $nscore);
         return $result;
     }
 }
