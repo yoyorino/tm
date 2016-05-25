@@ -7,7 +7,7 @@ defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
 /**
  * SITE_ROOT
  */
-defined('SITE_ROOT') ? null : define('SITE_ROOT', DS . 'var' . DS . 'www' . DS . 'html' . DS . 'tm');
+defined('SITE_ROOT') ? null : define('SITE_ROOT', DS . 'media' . DS . 'sf_sandbox' . DS . 'track_mention');
 
 /**
  * LIB_PATH

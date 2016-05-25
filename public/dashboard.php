@@ -1,7 +1,7 @@
 <?php require_once '../include/init.php';
 
 $session->is_logged_in() ? null : redirect_to('index.php');
-var_dump($session);
+//var_dump($session);
 
 
 
@@ -45,6 +45,8 @@ var_dump($session);
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <link rel="stylesheet" href="../.sandbox/css/main.css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,6 +57,7 @@ var_dump($session);
 </head>
 
 <body>
+<?php require_once '../.sandbox/html_navbar.php'; ?>
 
     <div id="wrapper">
 

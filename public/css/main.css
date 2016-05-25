@@ -1,0 +1,55 @@
+body {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+    background-color: gainsboro;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+#top-header {
+    min-height: 120px;
+    background-color: #27272A;
+    border-radius: 0;
+}
+
+
+#logo {
+    font-size: 48px;
+    line-height: 120px;
+    color: #2aabd2;
+}
+
+#navigation {
+    height: 120px;
+    line-height: 120px;
+}
+
+#menu {
+    float: right;
+}
+
+#menu ul li {
+    width: 90px;
+}
+
+#menu ul li a {
+    color:#9a9a9a;
+}
+
+
+#menu ul li a:hover {
+    color:#ffffff;
+}
+
+#menu ul li a.active {
+    color:#ffffff;
+}
+
+a:focus, a:hover {
+    text-decoration: none;
+}
+

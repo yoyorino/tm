@@ -1,3 +1,4 @@
 /include/db_config.php
 /.sandbox
 /.idea
+/include/init.php
