@@ -5,7 +5,7 @@ require_once '../include/init.php';
 
 //if ($session->is_logged_in()) { redirect_to('dashboard.php'); }
 //require_once '../include/content.php';
-$blog = DBContent::GetBlog();
+//$blog = DBContent::GetBlog();
 //var_dump($blog);
 
 // form has been submitted

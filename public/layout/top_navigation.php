@@ -1,6 +1,6 @@
 <!-- TOP NAVIGATION -->
-<div style="width: 100%; height: 1px; background-color: white;"></div>
 <div style="width: 100%; height: 1px; background-color: #ccc;"></div>
+<div style="width: 100%; height: 1px; background-color: white;"></div>
 <div class="container-fluid" style="background-color: #eee;">
     <div class="row">
         <div class="col-md-offset-1 col-md-11">
