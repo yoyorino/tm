@@ -23,4 +23,5 @@ class DBContent{
         echo $tmpstr;
         return $tmpresult;
     }
+    
 }

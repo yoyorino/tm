@@ -53,8 +53,6 @@ class wwwerk
         $commparentnode = $d->getElementById($idvalue);
         $commnodes = $this->getElementsByClass($commparentnode, $tagname);
         $arrlen = count($commnodes);
-        //print_r($commnodes);
-
         //for ($i = 0; $i < $arrlen; $i++){
         //    printf("%s <br />", $commnodes[$i]->nodeValue);
         //}

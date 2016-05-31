@@ -69,6 +69,7 @@ class filterwerk
         }
         //printf(" %s <br />", $bod);
 
+        
         array_push($result, $percent);
         array_push($result, $pscore);
         array_push($result, $nscore);

@@ -15,6 +15,7 @@
  */
 require_once '../include/init.php';
 
+
 if ($session->is_logged_in()){
     echo 'Welcome, ' . $session->user_id;
 }
