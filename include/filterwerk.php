@@ -19,7 +19,7 @@ class filterwerk
 
     public function initKeyWords(){
         $dbkw = new DBKeywords();
-        $tablekw = $dbkw->readContents($this->productid);
+        $tablekw = $dbkw->readContent($this->productid);
         if (count($tablekw) > 0){
             $this->words = $tablekw;
         }
@@ -47,7 +47,7 @@ class filterwerk
         foreach ($this->words as $kz){
             if (strpos($str, $kz->kzIzraz) !== false){
                 echo $kz->kzIzraz . ' ';
-                $this->dbrez->insertContents($comId, $kz->kzId , $date);
+                $this->dbrez->insertContent($comId, $kz->kzId , $date);
             }
         }
         return $result;
