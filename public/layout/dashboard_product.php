@@ -2,8 +2,10 @@
 //var_dump($_GET);
 $result = (new DBResult())->readContent($id);
 //var_dump($result);
-
+$triboje = "'#00BB20', '#BBBB20','#BB0020'";
 $tmpres = array();
+
+//osnovna prerabotka na podatoci, presmetka na poeni
 
 foreach ($result as $r){
     $found = false;
@@ -32,16 +34,19 @@ foreach ($result as $r){
         //var_dump($tmp);
     }
 }
+
+//morris.js po datum
+
 $tmpresDatum = array();
 foreach ($tmpres as $d){
     $found = false;
     $proc = $d['vkPoz']/$d['vkPoeni']*100;
     if ($d['vkPoeni'] == 0)
         $proc = 50; //neutralen
-    foreach ($tmpresDatum as $e){
+    foreach ($tmpresDatum as &$e){  //ova & trebalo pizda mu materina
         if ($e['rezDateTime'] == $d['rezDateTime']) {
             if ($proc > 60){
-                $e['vkPoz'] = $e['vkPoz'] + 3;
+                $e['vkPoz']++;
             }
             else if($proc < 40){
                 $e['vkNeg']++;
@@ -49,7 +54,6 @@ foreach ($tmpres as $d){
             else
                 $e['vkNeu']++;
             $found = true;
-            var_dump($e);
             break;
         }
     }
@@ -67,10 +71,71 @@ foreach ($tmpres as $d){
     }
 
 }
+//dodavanje na dummy datum i rezultati, dnevni rezultati
 $asd = ['rezDateTime' => '2016-05-27 01:31:15', 'vkPoz' => 5, 'vkNeu' => 10, 'vkNeg' => 3];
-array_push($tmpresDatum, $asd);
+$asd2 = ['rezDateTime' => '2016-05-28 01:31:15', 'vkPoz' => 7, 'vkNeu' => 12, 'vkNeg' => 4];
+$asd3 = ['rezDateTime' => '2016-05-29 01:31:15', 'vkPoz' => 4, 'vkNeu' => 8, 'vkNeg' => 6];
+array_push($tmpresDatum, $asd); array_push($tmpresDatum, $asd2); array_push($tmpresDatum, $asd3);
 $chartDate = json_encode($tmpresDatum);
-var_dump($tmpresDatum);
+
+//Line bar za vkupni komentari:
+$asd2 = ['rezDateTime' => '2016-05-28 01:31:15', 'vkPoz' => 12, 'vkNeu' => 22, 'vkNeg' => 7];
+$asd3 = ['rezDateTime' => '2016-05-29 01:31:15', 'vkPoz' => 16, 'vkNeu' => 30, 'vkNeg' => 13];
+
+$tmparr = array($asd); array_push($tmparr, $asd2); array_push($tmparr, $asd3);
+$chartLine = json_encode($tmparr);
+echo "<hr />";
+var_dump($chartLine);
+
+
+
+//produzetok za donut, demek, od sve mislenjata (+dummy):
+$tmpresDonutVkupno = array('vkPoz' => 0, 'vkNeu' => 0, 'vkNeg' => 0);
+foreach ($tmpresDatum as $a){
+    $tmpresDonutVkupno['vkPoz'] += $a['vkPoz'];
+    $tmpresDonutVkupno['vkNeu'] += $a['vkNeu'];
+    $tmpresDonutVkupno['vkNeg'] += $a['vkNeg'];
+}
+$tmparr = array(array('label'=>'Positive', 'value'=>$tmpresDonutVkupno['vkPoz']),
+    array('label'=>'Neutral', 'value'=>$tmpresDonutVkupno['vkNeu']),
+    array('label'=>'Negative', 'value'=>$tmpresDonutVkupno['vkNeg'])
+);
+$chartDonutVkupno = json_encode($tmparr);
+
+//top lista na zboroj, na stihoj, na nisto:
+//ti si nekade kaj sto nema da te dopram
+//i samo praznina mi ostana od tebeeeeei
+//sto da napravam so minato nesvrsenooooou
+//vidi ka-petnaes :D
+$toplistKZborovi = array();
+foreach ($result as $a){
+    $found = false;
+    foreach ($toplistKZborovi as &$b){
+        if ($a->kzIzraz == $b['kzIzraz']){
+            $b['kzKolicina']++;
+            $found = true;
+            break;
+        }
+    }
+    if ($found == false){
+        $tmp = ['kzIzraz' => $a->kzIzraz, 'kzKolicina' => 1];
+        array_push($toplistKZborovi, $tmp);
+    }
+}
+echo '<hr />';
+var_dump($toplistKZborovi);
+
+//Jojo ova e USER Array Sort, po funkcija, shablonski vrakja B-A, znaci ako B > A, B ide gore A dole
+
+uasort($toplistKZborovi, 'sortbyPoeni');
+function sortbyPoeni ($a, $b)
+{
+    return $b['kzKolicina'] - $a['kzKolicina'];
+}
+
+var_dump($toplistKZborovi);
+
+//var_dump($tmpresDatum);
 //var_dump($tmpres);
 ?>
 <div class="row">
@@ -298,6 +363,9 @@ var_dump($tmpresDatum);
                     <div class="col-lg-8">
                         <div id="morris-bar-chart"></div>
                     </div>
+                    <div class="col-lg-8">
+                        <div id="morris-line-chart"></div>
+                    </div>
                     <!-- /.col-lg-8 (nested) -->
                 </div>
                 <!-- /.row -->
@@ -422,56 +490,18 @@ var_dump($tmpresDatum);
     <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                <i class="fa fa-bell fa-fw"></i> Top descriptions:
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="list-group">
+                    <?php foreach ($toplistKZborovi as $zbor):?>
                     <a href="#" class="list-group-item">
-                        <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
+                        <i class="fa fa-comment fa-fw"></i> <?=$zbor['kzIzraz']; ?>
+                                    <span class="pull-right text-muted small"><em><?=$zbor['kzKolicina']; ?></em>
                                     </span>
                     </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                                    </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
-                                    </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                                    </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
-                                    </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-bolt fa-fw"></i> Server Crashed!
-                                    <span class="pull-right text-muted small"><em>11:13 AM</em>
-                                    </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-warning fa-fw"></i> Server Not Responding
-                                    <span class="pull-right text-muted small"><em>10:57 AM</em>
-                                    </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
-                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
-                                    </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-money fa-fw"></i> Payment Received
-                                    <span class="pull-right text-muted small"><em>Yesterday</em>
-                                    </span>
-                    </a>
+                    <?php endforeach; ?>
                 </div>
                 <!-- /.list-group -->
                 <a href="#" class="btn btn-default btn-block">View All Alerts</a>
@@ -607,22 +637,25 @@ var_dump($tmpresDatum);
             ykeys: ['vkPoz', 'vkNeu', 'vkNeg'],
             labels: ['Positive', 'Neutral', 'Negative'],
             pointSize: 2,
+            lineColors: [<?=$triboje; ?>],
             hideHover: 'auto',
             resize: true
         });
 
         Morris.Donut({
             element: 'morris-donut-chart',
-            data: [{
-                label: "Download Sales",
-                value: 12
-            }, {
-                label: "In-Store Sales",
-                value: 30
-            }, {
-                label: "Mail-Order Sales",
-                value: 20
-            }],
+            data: <?=$chartDonutVkupno; ?>,
+            colors: [<?=$triboje; ?>],
+            resize: true
+        });
+
+        Morris.Line({
+            element: 'morris-line-chart',
+            data: <?=$chartLine; ?>,
+            xkey: 'rezDateTime',
+            ykeys: ['vkPoz', 'vkNeu', 'vkNeg'],
+            labels: ['Positive', 'Neutral', 'Negative'],
+            colors: [<?=$triboje; ?>],
             resize: true
         });
 
