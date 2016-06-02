@@ -9,7 +9,7 @@
 
 <!-- Morris Charts JavaScript -->
 <script src="raphael/raphael-min.js"></script>
-<script src="morrisjs/morris.min.js"></script>
+<!--<script src="morrisjs/morris.min.js"></script>-->
 <script src="js/morris-data.js"></script>
 
 <!-- Custom Theme JavaScript -->

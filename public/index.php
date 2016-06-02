@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $found_user = User::authenticate($username, $password);
     if ($found_user) {
         $session->login($found_user);
+        log_action('Login', "{$found_user->usEmail} logged in.");
+        $_SESSION['products'] = (new DBProducts())->readContent($session->user_id);
         redirect_to('dashboard.php');
     } else {
         // username/password combo was not found in database

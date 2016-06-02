@@ -80,9 +80,15 @@ class DBComments extends DBItem{
     }
 }
 class DBResult extends DBItem{
-    protected static $readstr = '';
+    protected static $readstr = 'SELECT t2.komText, t3.kzIzraz, t3.kzPoeni, t1.rezDateTime FROM tblRezultati as t1 LEFT JOIN tblKomentari as t2 on t1.rezKomid = t2.komId
+LEFT JOIN tblKZborovi as t3 on t1.rezKZid = t3.kzId
+WHERE :prId';
     protected static $insertstr = 'INSERT INTO `tblRezultati`(`rezKomid`, `rezKZid`, `rezDateTime`) VALUES (:rezKomid,:rezKZid,:rezDateTime)';
 
+    public function readContent($prId){
+        $tmp = ['prId' => $prId];
+        return parent::readContents(self::$readstr, $tmp);
+    }
     public function insertContent($komId, $kzId, $datum)
     {
         $tmp = ['rezKomid' => $komId, 'rezKZid' => $kzId, 'rezDateTime' => $datum];

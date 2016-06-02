@@ -1,3 +1,9 @@
+<?php
+$my_product = new DBProducts();
+$products = $my_product->readContent($session->user_id);
+//isset($_GET['id']) ?  :  ;
+?>
+
 <!-- Navigation -->
 <nav role="navigation" style="margin-bottom: 0">
 
@@ -98,23 +104,11 @@
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="list-group">
-                    <?php
-
-                    
-
-                    $my_product = new DBProducts();
-                    $products = $my_product->readContent($session->user_id);
-
-
-                    ?>
                     <?php foreach ($products as $ps): ?>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-comment fa-fw"></i> <?php echo $ps->prIme; ?>
-                    </a>
+                    <a href="?id=<?= $ps->prId; ?>" class="list-group-item"><?= $ps->prIme; ?></a>
                     <?php endforeach; ?>
                 </div>
                 <!-- /.list-group -->
-                <a href="#" class="btn btn-default btn-block">View All Alerts</a>
             </div>
             <!-- /.panel-body -->
         </div>

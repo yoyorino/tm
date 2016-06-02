@@ -19,3 +19,17 @@ function redirect_to($location = null) {
         exit;
     }
 }
+
+function log_action($action, $message='') {
+    $log_string = date('Y-m-d H:i:s') . ' | '. $action . ': ' . $message . PHP_EOL;
+
+    if (file_exists(LOG_FILE)) {
+        if (is_writable(LOG_FILE)) {
+            file_put_contents(LOG_FILE, $log_string, FILE_APPEND);
+        } else {
+            echo LOG_FILE . ' is not writable';
+        }
+    } else {
+        file_put_contents(LOG_FILE, $log_string, FILE_APPEND);
+    }
+}

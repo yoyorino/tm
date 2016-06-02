@@ -34,3 +34,4 @@ require_once LIB_PATH.DS.'user.php';       // load database-related classes
 //klasete moi sto treba da se spoja:
 
 require_once LIB_PATH.DS.'content.php';
+// da vidimo dal kje se stade
