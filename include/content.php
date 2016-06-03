@@ -62,6 +62,7 @@ class DBProducts extends DBItem{
 class DBComments extends DBItem{
     protected static $readstr = 'select komId, komText from tblKomentari where komLink = :komLink;';
     protected static $insertstr = 'INSERT INTO `tblKomentari`(`komText`, `komLink`) VALUES (:komText, :komLink);';
+
     public function readContent($linkid)
     {
         $tmp = ['komLink' => $linkid];
