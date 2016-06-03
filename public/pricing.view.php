@@ -74,33 +74,102 @@
         <!-- RIGHT COLUMN -->
         <div class="col-md-7 col-md-offset-right-1">
             <div class="row">
-                <div class="col-md-offset-1 col-md-11" style="margin-bottom: 20px; background-color: white; border: 10px solid #e9e9e9; padding: 10px;">
-                    <div class="col-md-3"  style="background-color: #347AB8; height: 400px; border: 5px solid white;">
+                <div class="col-md-offset-1 col-md-11" style="margin-bottom: 20px; background-color: white; border: 10px solid #e9e9e9;">
+                    <div class="col-md-3"  style="background-color: #F3F3F3;  border: 5px solid white;">
                         <div class="row">
-                            <div class="col-md-12">
-                                <p class="text-center" style="color: white; padding-top: 15px; font-size: 35px">BASIC</p>
+                            <div class="col-md-12" style="padding: 0;">
+                                <p class="text-center" style="background-color: #347AB8; height: 100px; color: white; padding-top: 15px; font-size: 30px">BASIC</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <div style="width: 20px; height: 20px; background-color: white;">
+                                <div class="center-block" style="width: 100px; height: 100px; border: 3px solid #347AB8; border-radius: 100%; background-color: #383C3D; margin-top: -60px">
+                                    <p class="text-center" style="color: white; vertical-align: middle; line-height: 100px; font-size: 30px;">25eur</p>
 
                                 </div>
 
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque, aut esse eum fugit non perferendis quas saepe tenetur velit voluptates voluptatibus.</p>
+                                <button class="btn btn-primary btn-block" style="margin-bottom: 5px;">try! for free</button>
+                            </div>
+                        </div>
                     </div>
                     <!-- BASIC -->
 
-                    <div class="col-md-3" style="background-color: #82A841; height: 400px; border: 5px solid white;">
+                    <div class="col-md-3"  style="background-color: #F3F3F3;  border: 5px solid white;">
+                        <div class="row">
+                            <div class="col-md-12" style="padding: 0;">
+                                <p class="text-center" style="background-color: #82A841; height: 100px; color: white; padding-top: 15px; font-size: 30px">MEDIUM</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="center-block" style="width: 100px; height: 100px; border: 3px solid #82A841; border-radius: 100%; background-color: #383C3D; margin-top: -60px">
+                                    <p class="text-center" style="color: white; vertical-align: middle; line-height: 100px; font-size: 30px;">25eur</p>
 
-                    </div>
-                    <div class="col-md-3" style="background-color: #E2AD2B; height: 400px; border: 5px solid white;">
+                                </div>
 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque, aut esse eum fugit non perferendis quas saepe tenetur velit voluptates voluptatibus.</p>
+                                <button class="btn btn-primary btn-block" style="margin-bottom: 5px; background-color: #82A841">try! for free</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-3" style="background-color: #2A2A2A; height: 400px; border: 5px solid white;">
+                    <!-- MEDIUM -->
 
+                    <div class="col-md-3"  style="background-color: #F3F3F3;  border: 5px solid white;">
+                        <div class="row">
+                            <div class="col-md-12" style="padding: 0;">
+                                <p class="text-center" style="background-color: #E2AD2B; height: 100px; color: white; padding-top: 15px; font-size: 30px">ADVANCED</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="center-block" style="width: 100px; height: 100px; border: 3px solid #E2AD2B; border-radius: 100%; background-color: #383C3D; margin-top: -60px">
+                                    <p class="text-center" style="color: white; vertical-align: middle; line-height: 100px; font-size: 30px;">25eur</p>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque, aut esse eum fugit non perferendis quas saepe tenetur velit voluptates voluptatibus.</p>
+                                <button class="btn btn-primary btn-block" style="margin-bottom: 5px; background-color: #E2AD2B">try! for free</button>
+                            </div>
+                        </div>
                     </div>
+                    <!-- ADVANCED -->
+
+                    <div class="col-md-3"  style="background-color: #F3F3F3;  border: 5px solid white;">
+                        <div class="row">
+                            <div class="col-md-12" style="padding: 0;">
+                                <p class="text-center" style="background-color: #2A2A2A; height: 100px; color: white; padding-top: 15px; font-size: 30px">ULTIMATE</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="center-block" style="width: 100px; height: 100px; border: 3px solid #2A2A2A; border-radius: 100%; background-color: #383C3D; margin-top: -60px">
+                                    <p class="text-center" style="color: white; vertical-align: middle; line-height: 100px; font-size: 30px;">25eur</p>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque, aut esse eum fugit non perferendis quas saepe tenetur velit voluptates voluptatibus.</p>
+                                <button class="btn btn-primary btn-block" style="margin-bottom: 5px; background-color: #2A2A2A">try! for free</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ULTIMATE -->
                 </div>
             </div>
         </div>
