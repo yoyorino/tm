@@ -6,7 +6,7 @@
         <div class="col-md-offset-1 col-md-11">
             <ul class="nav navbar-nav">
                 <li class="btn-toolbar"><a href="index.php">Home</a></li>
-                <li class="btn-toolbar"><a href="#">Pricing</a></li>
+                <li class="btn-toolbar"><a href="pricing.php">Pricing</a></li>
                 <li class="btn-toolbar"><a href="#">Features</a></li>
                 <li class="btn-toolbar"><a href="#">Blog</a></li>
                 <li class="btn-toolbar"><a href="#">About</a></li>

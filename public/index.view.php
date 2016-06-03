@@ -3,7 +3,7 @@
     <!-- BANNER -->
     <div class="row">
         <div class="col-md-12" style="padding: 20px;">
-            <img src="../public/images/banner.png" alt="banner" class="img-thumbnail center-block" style="box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.1); padding: 10px;">
+            <img src="images/banner.png" alt="banner" class="img-thumbnail center-block" style="box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.1); padding: 10px;">
         </div>
     </div>
     <!-- END OF BANNER -->
@@ -13,27 +13,27 @@
         <!-- LEFT COLUMN -->
         <div class="col-md-offset-1 col-md-3">
 
-            
+
             <?php if (!$session->is_logged_in()): ?>
-            <div class="row">
-                <div class="col-md-12" style="background: url(images/panel-bg.png); padding-bottom: 15px; box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.3);">
-                    <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post" role="form">
-                        <legend>
-                            <h1 style="color: white;">Log In</h1>
-                            <p style="color: white;">Mauris molestie iaculis tellus ino.</p>
-                        </legend>
-                        <fieldset class="form-group">
-                            <label for="email" class="sr-only" hidden>Email address</label>
-                            <input id="email" name="email" type="text" class="form-control" placeholder="Email address" required autofocus>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="password" class="sr-only" hidden>Password</label>
-                            <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
-                        </fieldset>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div> <!-- .col-md-12 -->
-            </div>
+                <div class="row">
+                    <div class="col-md-12" style="background: url(images/panel-bg.png); padding-bottom: 15px; box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.3);">
+                        <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post" role="form">
+                            <legend>
+                                <h1 style="color: white;">Log In</h1>
+                                <p style="color: white;">Mauris molestie iaculis tellus ino.</p>
+                            </legend>
+                            <fieldset class="form-group">
+                                <label for="email" class="sr-only" hidden>Email address</label>
+                                <input id="email" name="email" type="text" class="form-control" placeholder="Email address" required autofocus>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <label for="password" class="sr-only" hidden>Password</label>
+                                <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
+                            </fieldset>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div> <!-- .col-md-12 -->
+                </div>
             <?php endif; ?>
 
 

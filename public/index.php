@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php require_once 'layout/top_header.php'; ?>
 <?php require_once 'layout/top_navigation.php'; ?>
 
-<?php require_once 'layout/index.php'; ?>
+<?php require_once 'index.view.php'; ?>
 
 <?php require_once 'layout/bot_about_us.php'; ?>
 <?php require_once 'layout/bot_copyright.php'; ?>
