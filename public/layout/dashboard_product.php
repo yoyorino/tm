@@ -72,6 +72,7 @@ foreach ($tmpres as $d){
 
 }
 //dodavanje na dummy datum i rezultati, dnevni rezultati
+//dummy je
 $asd = ['rezDateTime' => '2016-05-27 01:31:15', 'vkPoz' => 5, 'vkNeu' => 10, 'vkNeg' => 3];
 $asd2 = ['rezDateTime' => '2016-05-28 01:31:15', 'vkPoz' => 7, 'vkNeu' => 12, 'vkNeg' => 4];
 $asd3 = ['rezDateTime' => '2016-05-29 01:31:15', 'vkPoz' => 4, 'vkNeu' => 8, 'vkNeg' => 6];
@@ -79,6 +80,7 @@ array_push($tmpresDatum, $asd); array_push($tmpresDatum, $asd2); array_push($tmp
 $chartDate = json_encode($tmpresDatum);
 
 //Line bar za vkupni komentari:
+//sobrani sa prethodnite rezultati
 $asd2 = ['rezDateTime' => '2016-05-28 01:31:15', 'vkPoz' => 12, 'vkNeu' => 22, 'vkNeg' => 7];
 $asd3 = ['rezDateTime' => '2016-05-29 01:31:15', 'vkPoz' => 16, 'vkNeu' => 30, 'vkNeg' => 13];
 
@@ -102,11 +104,8 @@ $tmparr = array(array('label'=>'Positive', 'value'=>$tmpresDonutVkupno['vkPoz'])
 );
 $chartDonutVkupno = json_encode($tmparr);
 
-//top lista na zboroj, na stihoj, na nisto:
-//ti si nekade kaj sto nema da te dopram
-//i samo praznina mi ostana od tebeeeeei
-//sto da napravam so minato nesvrsenooooou
-//vidi ka-petnaes :D
+//top lista na zboroi
+
 $toplistKZborovi = array();
 foreach ($result as $a){
     $found = false;
@@ -154,7 +153,7 @@ var_dump($toplistKZborovi);
                         <i class="fa fa-comments fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">26</div>
+                        <div class="huge"><p><?php echo count($result); ?></p></div>
                         <div>New Comments!</div>
                     </div>
                 </div>

@@ -8,7 +8,7 @@
                 <li class="btn-toolbar"><a href="index.php">Home</a></li>
                 <li class="btn-toolbar"><a href="pricing.php">Pricing</a></li>
                 <li class="btn-toolbar"><a href="#">Features</a></li>
-                <li class="btn-toolbar"><a href="#">Blog</a></li>
+                <li class="btn-toolbar"><a href="blog.php">Blog</a></li>
                 <li class="btn-toolbar"><a href="#">About</a></li>
             </ul>
         </div>
