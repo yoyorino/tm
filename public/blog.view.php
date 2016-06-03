@@ -46,51 +46,21 @@
 <?php endif; ?>
 
 
-<div class="row">
-    <div class="col-md-12" style="margin-top: 15px; box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.3);">
-        <h1>Quisque egetari</h1>
-        <ul>
-            <li><a href="#">+ Etiam nec neque nisiorn fauci</a></li>
-            <li><a href="#">+ Proin suscipit justo euismod ino</a></li>
-            <li><a href="#">+ Integer nec mi non elit gra</a></li>
-            <li><a href="#">+ Nunc a massa nulla, quis elem</a></li>
-            <li><a href="#">+ Cras iaculis felis ut quam</a></li>
-            <li><a href="#">+ Suspendisse sollicitudin enim</a></li>
-            <li><a href="#">+ Proin tempor magna vel sap</a></li>
-        </ul>
-    </div> <!-- .col-md-12 -->
-</div>
-<div class="row">
-    <div class="col-md-12" style="margin-top: 15px; background: url(images/panel-bg.png); padding-bottom: 15px; box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.3);">
-        <h1 style="color: white">Aenean euctus</h1>
-        <dl>
-            <dt style="color: #2aabd2;">06-23-2012</dt>
-            <dd style="color: #8b8b8b">Ut quis nibh nibh, eu interdum tiam nec orci ut dui tincidunt hend.</dd>
-        </dl>
-        <dl>
-            <dt style="color: #2aabd2;">06-17-2012</dt>
-            <dd style="color: #8b8b8b">Nam curus nunet velit molis elem erat ut enimfrin pretium.</dd>
-        </dl>
-        <dl>
-            <dt style="color: #2aabd2;">06-08-2012</dt>
-            <dd style="color: #8b8b8b">Donec estin convallis slolicit cun duis est trupis ligula.</dd>
-        </dl>
-    </div> <!-- .col-md-12 -->
-</div>
+
 </div>
 <!-- END OF LEFT COLUMN -->
 
 <!-- RIGHT COLUMN -->
-<div class="col-md-7 col-md-offset-right-1">
+<div class="col-md-10  col-md-offset-1">
     <?php $content = (new DBBlog())->readContent();
     //var_dump($content);
     foreach ($content as $c):?>
     <div class="row">
-        <div class="col-md-offset-1 col-md-11" style="margin-bottom: 20px; background-color: white; border: 10px solid #e9e9e9; padding-bottom: 10px;">
+        <div class="col-md-12" style="margin-bottom: 20px; background-color: white; border: 10px solid #e9e9e9; padding-bottom: 10px;">
             <h1 style="color: #1b6d85"><?=$c->blHeader; ?></h1>
             <br />
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <p><?=$c->blText; ?></p>
                 </div>
             </div>
@@ -105,7 +75,7 @@
     </div>
     <?php endforeach; ?>
     <div class="row">
-        <div class="col-md-offset-1 col-md-11" style="margin-bottom: 20px; background-color: white; border: 10px solid #e9e9e9; padding-bottom: 10px;">
+        <div class="col-md-12" style="margin-bottom: 20px; background-color: white; border: 10px solid #e9e9e9; padding-bottom: 10px;">
             <h1 style="color: #1b6d85">Mauris volutpat nulla sit amet ante</h1>
             <h4>Pellentesque nec massa at massa condimentum rutrum quis sit amet ante. </h4>
             <hr>
