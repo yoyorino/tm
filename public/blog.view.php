@@ -17,15 +17,6 @@
     </div>
     <!-- END OF BANNER -->
 
-    <!-- CONTENT -->
-    <div class="row">
-        <!-- LEFT COLUMN -->
-        <div class="col-md-offset-1 col-md-3">
-            
-
-</div>
-<!-- END OF LEFT COLUMN -->
-
 <!-- RIGHT COLUMN -->
 <div class="col-md-10  col-md-offset-1">
     <?php $content = (new DBBlog())->readContent();

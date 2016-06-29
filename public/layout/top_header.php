@@ -2,7 +2,7 @@
 <div id="top-header" class="container-fluid">
     <div class="row">
         <div class="col-md-offset-1 col-md-5">
-            <a href="index.php"><span id="logo">Track Mention</span></a>
+            <a href="index.php"><img id="logo" src="images/logo.png" alt="logo" style="padding-top: 20px"></a>
         </div>
         <?php if ($session->is_logged_in()): ?>
         <div id="navigation" class="col-md-5 col-md-offset-right-1">

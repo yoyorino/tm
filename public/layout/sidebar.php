@@ -104,7 +104,7 @@ $products = $my_product->readContent($session->user_id);
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="list-group">
-                    <?php foreach ($products as $ps): ?>
+                    <?php foreach ($products as $ps): //todo links as absolute ?>
                     <a href="?id=<?= $ps->prId; ?>" class="list-group-item"><?= $ps->prIme; ?></a>
                     <?php endforeach; ?>
                 </div>

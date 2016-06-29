@@ -33,7 +33,7 @@ class User extends DatabaseObject {
         }
         else return false;
     }
-    private function InsertUser($tmp){
+    private static function InsertUser($tmp){
         $sql = 'INSERT INTO `tblUsers`(`usEmail`, `usName`, `usSurname`, `usPass`, `usRole`, `usCodeId`) VALUES (:email,:fname,:lname,:pass, :role ,:codeid);';
         var_dump($sql);
         global $database;

@@ -30,7 +30,8 @@
                                 <label for="password" class="sr-only" hidden>Password</label>
                                 <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
                             </fieldset>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Log In</button>
+                            <button type="button" class="btn btn-link">Register</button>
                         </form>
                     </div> <!-- .col-md-12 -->
                 </div>
