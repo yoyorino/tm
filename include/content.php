@@ -17,6 +17,14 @@ class DBContent{
         return $tmpresult;
     }
 }
+class DBCode extends DBItem{
+    private static $readstr = 'SELECT akUsed, akId FROM tblCodes WHERE akCode = :kod;';
+
+    public function readContent($code)
+    {
+        return parent::readContents(self::$readstr, ['kod' => $code]);
+    }
+}
 class DBBlog extends DBItem{
     private static $readstr = 'select t1.blHeader, t1.blText, t1.blDateAdded, t2.usName, t2.usSurname from tblBlog as t1 left join tblUsers as t2 on t1.blUser = t2.usEmail order by t1.blDateAdded DESC;';
 
@@ -84,12 +92,21 @@ class DBResult extends DBItem{
     protected static $readstr = 'SELECT t2.komText, t3.kzIzraz, t3.kzPoeni, t1.rezDateTime FROM tblRezultati as t1 LEFT JOIN tblKomentari as t2 on t1.rezKomid = t2.komId
 LEFT JOIN tblKZborovi as t3 on t1.rezKZid = t3.kzId
 WHERE :prId';
+    private static $readallstr = 'SELECT t2.komText, t3.kzIzraz, t3.kzPoeni, t1.rezDateTime FROM tblRezultati as t1 LEFT JOIN tblKomentari as t2 on t1.rezKomid = t2.komId
+LEFT JOIN tblKZborovi as t3 on t1.rezKZid = t3.kzId LEFT JOIN tblProdukt AS t4 on t4.prId = t3.kzProduktID LEFT JOIN tblUsers as t5 on t4.prUser = t5.usEmail
+WHERE t5.usEmail = :usid';
     protected static $insertstr = 'INSERT INTO `tblRezultati`(`rezKomid`, `rezKZid`, `rezDateTime`) VALUES (:rezKomid,:rezKZid,:rezDateTime)';
 
     public function readContent($prId){
         $tmp = ['prId' => $prId];
         return parent::readContents(self::$readstr, $tmp);
     }
+    public function readAllContent($usId){
+        $tmp = ['usid' => $usId];
+        return parent::readContents(self::$readallstr, $tmp);
+    }
+
+
     public function insertContent($komId, $kzId, $datum)
     {
         $tmp = ['rezKomid' => $komId, 'rezKZid' => $kzId, 'rezDateTime' => $datum];
